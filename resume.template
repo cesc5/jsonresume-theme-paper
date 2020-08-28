@@ -36,10 +36,10 @@
                 Contact
               </div>
               <div class="content-text">
-                {{#if website}}
+                {{#if phone}}
                   <ul>
-                    <li>Website</li>
-                    <li>{{website}}</li>
+                    <li>Phone</li>
+                    <li>{{phone}}</li>
                   </ul>
                 {{/if}}
                 {{#if email}}
@@ -48,12 +48,19 @@
                     <li>{{email}}</li>
                   </ul>
                 {{/if}}
-                {{#if phone}}
+                {{#if birthday}}
                   <ul>
-                    <li>Phone</li>
-                    <li>{{phone}}</li>
+                    <li>Date of birth</li>
+                    <li>{{birthday}}</li>
                   </ul>
                 {{/if}}
+                {{#if website}}
+                  <ul>
+                    <li>Website</li>
+                    <li>{{website}}</li>
+                  </ul>
+                {{/if}}
+
               </div>
             </div>
           </section>
@@ -91,6 +98,22 @@
               </section>
             {{/ifCond}}
           {{/location}}
+
+          <!-- SUMMARY -->
+            {{#if summary}}
+              <section class="content">
+                <div class="row">
+                  <div class="content-cat">
+                    Summary
+                  </div>                  
+                  <div class="content-text summary">
+                    {{#if summary}}
+                      <p>{{summary}}</p>
+                    {{/if}}
+                  </div>
+                </div>
+              </section>
+            {{/if}}
       {{/resume.basics}}
 
           {{#if resume.work.length}}
@@ -220,6 +243,39 @@
                           {{/if}}
                           <i>{{area}} {{#if gpa}}({{gpa}}){{/if}}</i>
                         </p>
+                      {{/if}}
+                    </div>
+                  </div>
+                </section>
+            {{/foreach}}
+          {{/if}}
+
+          {{#if resume.certification.length}}
+            {{#foreach resume.certification}}
+              {{#if $first}}
+                <section class="content">
+              {{else}}
+                <section class="content education-content">
+              {{/if}}
+                  <div class="row">
+                    <div class="content-cat big-text">
+                      {{#if $first}}
+                        Certification
+                      {{/if}}
+                      {{#if date}}
+                        <p>{{date}}</p>
+                      {{/if}}
+                    </div>
+                    <div class="content-text work-listing education-listing">
+                      {{#if institution}}
+                        {{#if $first}}
+                          <p class="heading" style="margin-top:2.35em;">{{institution}}</p>
+                        {{else}}
+                          <p class="heading">{{institution}}</p>
+                        {{/if}}
+                      {{/if}}
+                      {{#if name}}
+                        <p class="highlight">{{name}}</p>
                       {{/if}}
                     </div>
                   </div>
